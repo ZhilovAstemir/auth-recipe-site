@@ -114,7 +114,6 @@ const Registration = () => {
           <Route path="/" element={<App/>}/>
         </Routes>
       </div>
-
     </div>
   );
 };
