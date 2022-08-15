@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import "./styles/main.css";
-import './pages/Registration.css';
+import "../styles/main.css";
+import '../styles/Registration.css';
+import {Routes, Route, Link} from "react-router-dom";
+import App from "../App";
+
 
 const Registration = () => {
   const [firstName, setFirstName] = useState("");
@@ -105,9 +108,13 @@ const Registration = () => {
                  placeholder="Enter your password..."/>
 
           <button className="registration-btn" disabled={!formValid} type="submit">Confirm</button>
-          <button className="registration-back-btn">Back</button>
+          <button className="registration-back-btn"><Link className="back-btn" to="/">Back</Link></button>
         </form>
+        <Routes>
+          <Route path="/" element={<App/>}/>
+        </Routes>
       </div>
+
     </div>
   );
 };

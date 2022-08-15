@@ -1,7 +1,8 @@
-import './App.css';
-import React from "react";
+import {Routes, Route, Link} from "react-router-dom";
+import React from 'react';
 import "./styles/main.css";
 import "./styles/LoginPage.css";
+import Registration from "./pages/Registration";
 
 function App() {
   return (
@@ -20,9 +21,11 @@ function App() {
               <button>Login</button>
             </div>
             <p className="link">
-              or<a href="/src/Registration.jsx"> Sign up</a>
+              or<Link to="/register"> Sign up</Link>
             </p>
-
+            <Routes>
+              <Route path="/register" element={<Registration/>}/>
+            </Routes>
           </div>
         </div>
       </div>
