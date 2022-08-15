@@ -19,7 +19,7 @@ const LoginPage = () => {
               <input type="password" placeholder="user password" className="name"/>
             </div>
             <div className="login-btn">
-              <button>Login</button>
+              <button className="login-btn btn">Login</button>
             </div>
             <p className="link">
               or<Link to="/register"> Sign up</Link>

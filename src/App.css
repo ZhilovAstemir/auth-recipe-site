@@ -1,3 +1,35 @@
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.app-div {
+  padding: 25px;
+  height: 15%;
+  width: 100%;
+  background-color: #cccccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.initial-btn {
+  margin: 0 15px 0 15px;
+}
+
+.initial-btn:hover {
+  background-color: white;
+}
+
+button {
+  width: 300px;
+  height: 50px;
+  border-radius: 60px;
+  background-color: teal;
+  color: white;
+  font-size: 25px;
+  border: none;
+  cursor: pointer;
 }
