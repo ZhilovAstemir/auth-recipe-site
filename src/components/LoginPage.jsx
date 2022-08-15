@@ -1,5 +1,6 @@
 import React from 'react';
 import "../styles/LoginPage.css";
+import "../styles/main.css"
 
 const LoginPage = () => {
   return (
@@ -17,7 +18,6 @@ const LoginPage = () => {
             <div className="login-btn">
               <button>Login</button>
             </div>
-
             <p className="link">
               or<a href="#"> Sign up</a>
             </p>

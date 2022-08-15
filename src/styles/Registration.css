@@ -1,20 +1,26 @@
-.sub-main {
+.registration {
   font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 450px;
+  height: 600px;
   width: 35%;
   box-shadow: 1px 1px 1px 1px rgb(207, 207, 207);
   border-radius: 50px;
   background-color: rgba(234, 234, 234, 0.83);
 }
 
-.login-btn {
-  padding-top: 25px;
+form {
+  height: 600px;
+  width: 45%;
 }
 
-.link {
-  font-size: 22px;
-  font-weight: 400;
+input {
+  margin: 15px 5px 15px 5px;
 }
+
+.registration-btn, .registration-back-btn {
+  font-size: 20px;
+  margin-top: 15px;
+}
+
