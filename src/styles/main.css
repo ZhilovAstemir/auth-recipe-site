@@ -31,6 +31,8 @@ input:hover {
   font-size: 25px;
   border: none;
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn:hover {

@@ -8,11 +8,11 @@
   padding: 25px;
   height: 15%;
   width: 100%;
-  background-color: #cccccc;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
+  border-bottom: 1px solid teal;
 }
 
 .initial-btn {
@@ -32,4 +32,8 @@ button {
   font-size: 25px;
   border: none;
   cursor: pointer;
+}
+
+a {
+  color: white;
 }

@@ -22,11 +22,8 @@ const LoginPage = () => {
               <button className="login-btn btn">Login</button>
             </div>
             <p className="link">
-              or<Link to="/register"> Sign up</Link>
+              or<Link to="/signin"> Sign up</Link>
             </p>
-            <Routes>
-              <Route path="/register" element={<Registration/>}/>
-            </Routes>
           </div>
         </div>
       </div>

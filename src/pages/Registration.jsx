@@ -1,10 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import "../styles/main.css";
 import '../styles/Registration.css';
-import {Routes, Route, Link} from "react-router-dom";
-import LoginPage from "./LoginPage";
-import {A} from "prisma/build/public/assets/vendor";
-import App from "../App";
+import {Link, Route, Routes} from "react-router-dom";
 
 
 const Registration = () => {
@@ -110,10 +107,7 @@ const Registration = () => {
                  placeholder="Enter your password..."/>
 
           <button className="registration-btn btn" disabled={!formValid} type="submit">Confirm</button>
-          <button className="registration-back-btn btn"><Link className="back-btn" to="/">Back</Link></button>
-          <Routes>
-            <Route path="/"/>
-          </Routes>
+          <button className="registration-back-btn btn"><Link className="back-btn" to="/login">Back</Link></button>
         </form>
       </div>
     </div>

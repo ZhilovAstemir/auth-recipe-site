@@ -14,12 +14,18 @@ input {
   margin: 15px 5px 15px 5px;
 }
 
+h1 {
+  padding-bottom: 25px;
+}
+
 .login-btn {
-  padding-top: 20px;
+  margin-top: 15px;
+  align-items: center;
+  justify-content: center;
 }
 
 .link {
   font-size: 20px;
   font-weight: 400;
-  padding-top: 15px;
+  padding-top: 20px;
 }

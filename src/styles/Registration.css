@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 600px;
+  height: 700px;
   width: 35%;
   box-shadow: 1px 1px 1px 1px rgb(207, 207, 207);
   border-radius: 50px;
@@ -13,6 +13,7 @@
 form {
   height: 600px;
   width: 45%;
+  margin-top: 25px;
 }
 
 input {
@@ -23,6 +24,8 @@ input {
   font-size: 20px;
   margin-top: 15px;
   color: white;
+  align-items: center;
+  justify-content: center;
 }
 
 .alert {
