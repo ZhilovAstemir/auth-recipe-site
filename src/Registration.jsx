@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import "../styles/main.css";
-import '../styles/Registration.css'
+import "./styles/main.css";
+import './pages/Registration.css';
 
 const Registration = () => {
   const [firstName, setFirstName] = useState("");
@@ -15,10 +15,15 @@ const Registration = () => {
   const [lastNameError, setLastNameError] = useState("This field can't be empty");
   const [passwordError, setPasswordError] = useState("This field can't be empty");
   const [emailError, setEmailError] = useState("This field can't be empty");
+  const [formValid, setFormValid] = useState(false);
 
   useEffect(() => {
-
-  }, [])
+    if (firstNameError || lastNameError || emailError || passwordError) {
+      setFormValid(false);
+    } else {
+      setFormValid(true);
+    }
+  }, [firstNameError, lastNameError, emailError, passwordError]);
 
   const firstNameHandler = (event) => {
     setFirstName(event.target.value);
@@ -31,7 +36,7 @@ const Registration = () => {
 
   const lastNameHandler = (event) => {
     setLastName(event.target.value);
-    if (event.target.value.length >= 2) {
+    if (event.target.value.length >= 1) {
       setLastNameError("");
     } else {
       setLastNameError("invalid last name");
@@ -40,7 +45,7 @@ const Registration = () => {
 
   const emailHandler = (event) => {
     setEmail(event.target.value);
-    const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    const re = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
     if (!re.test(String(event.target.value).toLowerCase())) {
       setEmailError("Invalid email");
     } else {
@@ -74,7 +79,6 @@ const Registration = () => {
     }
   }
 
-
   return (
     <div className="register-form main">
       <div className="registration">
@@ -100,7 +104,7 @@ const Registration = () => {
                  className="name" name="password"
                  placeholder="Enter your password..."/>
 
-          <button className="registration-btn">Confirm</button>
+          <button className="registration-btn" disabled={!formValid} type="submit">Confirm</button>
           <button className="registration-back-btn">Back</button>
         </form>
       </div>

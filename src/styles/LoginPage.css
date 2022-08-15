@@ -10,11 +10,16 @@
   background-color: rgba(234, 234, 234, 0.83);
 }
 
+input {
+  margin: 15px 5px 15px 5px;
+}
+
 .login-btn {
-  padding-top: 25px;
+  padding-top: 20px;
 }
 
 .link {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 400;
+  padding-top: 15px;
 }
