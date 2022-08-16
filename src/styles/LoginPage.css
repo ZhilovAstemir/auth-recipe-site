@@ -8,4 +8,17 @@
   box-shadow: 1px 1px 1px 1px rgb(207, 207, 207);
   border-radius: 50px;
   background-color: rgba(234, 234, 234, 0.83);
+  font-family: Raleway, sans-serif;
+}
+
+.login-link {
+  color: #025f5f;
+}
+
+.login-link:hover {
+  color: #00bcbc;
+}
+
+.login-btn {
+  margin-top: 15px;
 }
