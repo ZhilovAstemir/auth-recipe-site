@@ -1,20 +1,8 @@
 import React from 'react';
 import "../styles/Recipes.css"
-import RecipeItem from "./RecipeItem";
-import {recipes} from "../shared/projectData";
+import {recipesPost} from "../shared/functions";
 
 const Recipes = () => {
-
-  const recipesPost = recipes.map((item) => {
-
-    return (
-      <RecipeItem
-        key={item.id}
-        title={item.title}
-        description={item.description}
-      />
-    )
-  })
 
   return (
     <>
