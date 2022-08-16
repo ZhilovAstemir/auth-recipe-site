@@ -4,7 +4,7 @@ import {Routes, Route, Link} from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import Registration from "./pages/Registration";
 import Recipes from "./pages/Recipes";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (

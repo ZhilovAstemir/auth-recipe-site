@@ -1,15 +1,24 @@
-import React from 'react';
-import "../styles/Recipes.css"
-import {recipesPost} from "../shared/functions";
+import React, {useState} from 'react';
+import creatRecipe from "../modals/creatRecipe";
 
 const Recipes = () => {
+  const [modal, setModal] = useState(false);
+
+  const toggle = () => {
+    setModal(!modal);
+  };
+
 
   return (
     <>
-      <h1>Recipes</h1>
-      <div className="recipes">
-        {recipesPost}
+      <div className="header text-center">
+        <h3>Recipes List</h3>
+        <button className="btn btn-primary mt-2">Add Recipe</button>
       </div>
+      <div className="recipe-container">
+
+      </div>
+      <creatRecipe toggle={toggle} modal={modal}/>
     </>
   );
 };
