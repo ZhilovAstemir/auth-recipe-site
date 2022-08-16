@@ -1,16 +1,3 @@
-.deleteBtn {
-  color: #fff;
-  width: 65px;
-  height: 30px;
-  font-size: 15px;
-  margin: 10px 10px 10px 5px;
-}
-
-.deleteBtn:hover {
-  color: teal;
-  background-color: #f1f1f1;
-}
-
 .recipesContainer {
   margin-top: 25px;
 }

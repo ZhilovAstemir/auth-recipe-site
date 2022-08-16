@@ -20,14 +20,6 @@ input {
   margin: 15px 5px 15px 5px;
 }
 
-.registration-btn, .registration-back-btn {
-  font-size: 20px;
-  margin-top: 15px;
-  color: white;
-  align-items: center;
-  justify-content: center;
-}
-
 .alert {
   font-size: 15px;
   font-family: Raleway, sans-serif;

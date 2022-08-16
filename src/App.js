@@ -10,9 +10,9 @@ function App() {
   return (
     <>
       <div className="app-div">
-        <button className="initial-btn"><Link to="/resipes">Home</Link></button>
-        <button className="initial-btn"><Link to="/login">Log In</Link></button>
-        <button className="initial-btn"><Link to="/signin">Sign in</Link></button>
+        <button className="btn btn-primary m-2"><Link to="/resipes">Home</Link></button>
+        <button className="btn btn-primary m-2"><Link to="/login">Log In</Link></button>
+        <button className="btn btn-primary m-2"><Link to="/signin">Sign in</Link></button>
       </div>
       <Routes>
         <Route path="/login" element={<LoginPage/>}/>

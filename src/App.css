@@ -33,25 +33,6 @@ h1 {
   border-bottom: 1px solid teal;
 }
 
-.initial-btn {
-  margin: 0 15px 0 15px;
-}
-
-.initial-btn:hover {
-  background-color: white;
-}
-
-button {
-  width: 300px;
-  height: 50px;
-  border-radius: 60px;
-  background-color: teal;
-  color: white;
-  font-size: 25px;
-  border: none;
-  cursor: pointer;
-}
-
 a {
   color: white;
 }
