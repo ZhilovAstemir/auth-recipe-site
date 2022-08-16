@@ -2,17 +2,27 @@ import React, {useEffect, useState} from 'react';
 import CreatRecipe from "../modals/CreatRecipe";
 import Recipe from "./Recipe";
 
+
 const Recipes = () => {
+
   const [modal, setModal] = useState(false);
   const [recipeList, setRecipeList] = useState([]);
 
-  useEffect(() => {
-    let arr = localStorage.getItem("recipesList");
-    if (arr) {
-      let obj = JSON.parse(arr);
-      setRecipeList(obj);
-    }
-  }, [])
+  const deleteRecipe = (index) => {
+    let tempList = recipeList;
+    tempList.splice(index, 1);
+    localStorage.setItem("recipesList", JSON.stringify(tempList));
+    setRecipeList(tempList);
+    window.location.reload();
+  }
+
+  const updateRecipeArray = (obj, index) => {
+    let tempRecipe = recipeList;
+    tempRecipe[index] = obj;
+    localStorage.setItem("recipesList", JSON.stringify(tempRecipe));
+    setRecipeList(tempRecipe);
+    window.location.reload();
+  }
 
   const toggle = () => {
     setModal(!modal);
@@ -26,6 +36,14 @@ const Recipes = () => {
     setRecipeList(tempList);
   }
 
+  useEffect(() => {
+    let arr = localStorage.getItem("recipesList");
+    if (arr) {
+      let obj = JSON.parse(arr);
+      setRecipeList(obj);
+    }
+  }, []);
+
   return (
     <>
       <div className="header text-center">
@@ -33,7 +51,8 @@ const Recipes = () => {
         <button className="btn btn-primary mt-2" onClick={() => setModal(true)}>Create Recipe</button>
       </div>
       <div className="recipe-container">
-        {recipeList.map((obj, index) => <Recipe recipeObj={obj} index={index}/>)}
+        {recipeList.map((obj, index) => <Recipe recipeObj={obj} index={index} deleteRecipe={deleteRecipe}
+                                                updateRecipeArray={updateRecipeArray}/>)}
       </div>
       <CreatRecipe toggle={toggle} modal={modal} save={saveRecipe}/>
     </>

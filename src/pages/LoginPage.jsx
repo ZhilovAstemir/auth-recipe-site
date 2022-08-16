@@ -3,7 +3,9 @@ import React from 'react';
 import "../styles/main.css"
 import "../styles/LoginPage.css"
 
+
 const LoginPage = () => {
+
   return (
     <div className="main">
       <div className="sub-main">

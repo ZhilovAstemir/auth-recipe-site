@@ -11,10 +11,6 @@
   padding-top: 45px;
 }
 
-h1 {
-  text-align: center;
-}
-
 .recipes {
   padding: 10px;
   min-height: calc(100vh - 100px);
@@ -33,9 +29,7 @@ h1 {
   border-bottom: 1px solid teal;
 }
 
-
-
-.card-wrapper {
+.recipes-wrapper {
   width: 270px;
   height: 200px;
   box-shadow: 0 3px 50px #A5A5A5;
@@ -43,7 +37,7 @@ h1 {
   flex-direction: column;
 }
 
-.card-top {
+.recipe-top {
   width: 100%;
   height: 2%;
 }
@@ -57,10 +51,10 @@ h1 {
   position: relative;
 }
 
-.card-header {
+.recipe-header {
   margin-top: 10px;
   margin-bottom: 10px;
-  max-width: 80px;
+  max-width: 100%;
   height: 30px;
   padding: 1px 1px !important;
   text-align: center;

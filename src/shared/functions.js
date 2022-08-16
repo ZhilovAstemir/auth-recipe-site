@@ -2,6 +2,7 @@ import {recipes} from "./projectData";
 import RecipeItem from "../pages/RecipeItem";
 import React from "react";
 
+
 export const recipesPost = recipes.map((item) => {
 
   return (

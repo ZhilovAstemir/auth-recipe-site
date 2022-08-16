@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import "../styles/main.css";
 import '../styles/Registration.css';
-import {Link, Route, Routes} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 
 const Registration = () => {
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
@@ -18,14 +19,6 @@ const Registration = () => {
   const [passwordError, setPasswordError] = useState("This field can't be empty");
   const [emailError, setEmailError] = useState("This field can't be empty");
   const [formValid, setFormValid] = useState(false);
-
-  useEffect(() => {
-    if (firstNameError || lastNameError || emailError || passwordError) {
-      setFormValid(false);
-    } else {
-      setFormValid(true);
-    }
-  }, [firstNameError, lastNameError, emailError, passwordError]);
 
   const firstNameHandler = (event) => {
     setFirstName(event.target.value);
@@ -80,6 +73,14 @@ const Registration = () => {
         break;
     }
   }
+
+  useEffect(() => {
+    if (firstNameError || lastNameError || emailError || passwordError) {
+      setFormValid(false);
+    } else {
+      setFormValid(true);
+    }
+  }, [firstNameError, lastNameError, emailError, passwordError]);
 
   return (
     <div className="register-form main">
