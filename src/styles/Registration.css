@@ -4,14 +4,44 @@
   justify-content: center;
   align-items: center;
   height: 700px;
-  width: 35%;
+  width: 30%;
   box-shadow: 1px 1px 1px 1px rgb(207, 207, 207);
   border-radius: 50px;
   background-color: rgba(234, 234, 234, 0.83);
+  font-family: Raleway, sans-serif;
+}
+
+.register-h1 {
+  margin-bottom: 50px;
 }
 
 .alert {
   font-size: 15px;
   font-family: Raleway, sans-serif;
   font-weight: 500;
+  margin-bottom: -20px;
+}
+
+.register-input {
+  display: block;
+  width: 100%;
+  margin: 15px 25px 0 10px;
+  border-radius: 10px;
+  height: 40px;
+  border: 1px solid teal;
+}
+
+.register-input::placeholder {
+  padding-left: 15px;
+  margin-left: 15px;
+}
+
+.register-input:hover {
+  border: 1px solid #025f5f;
+  background-color: #eaeaea;
+}
+
+.register-btns {
+  display: block;
+  margin: 0 auto;
 }

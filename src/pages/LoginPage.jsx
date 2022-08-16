@@ -7,7 +7,7 @@ import "../styles/LoginPage.css"
 const LoginPage = () => {
 
   return (
-    <div className="main">
+    <div className="main register-form">
       <div className="sub-main">
         <div>
           <div>
@@ -19,7 +19,7 @@ const LoginPage = () => {
               <input type="password" placeholder="user password" className="name"/>
             </div>
             <div className="login-btn">
-              <button className="login-btn btn">Login</button>
+              <button className="btn btn-primary m-2">Login</button>
             </div>
             <p className="link">
               or<Link to="/signin"> Sign up</Link>

@@ -85,30 +85,30 @@ const Registration = () => {
   return (
     <div className="register-form main">
       <div className="registration">
-        <form>
-          <h1>Registration</h1>
+        <form className="register-form">
+          <h1 className="register-h1">Registration</h1>
           {(firstNameDirty && firstNameError) && <div className="alert" style={{color: "red"}}>{firstNameError}</div>}
           <input onChange={e => firstNameHandler(e)} onBlur={e => blurHandler(e)} value={firstName} type="text"
-                 className="name" name="firstName"
+                 className="name register-input" name="firstName"
                  placeholder="Enter your first name..."/>
 
           {(lastNameDirty && lastNameError) && <div className="alert" style={{color: "red"}}>{lastNameError}</div>}
           <input onChange={e => lastNameHandler(e)} onBlur={e => blurHandler(e)} value={lastName} type="text"
-                 className="name" name="lastName"
+                 className="name register-input" name="lastName"
                  placeholder="Enter your last name..."/>
 
           {(emailDirty && emailError) && <div className="alert" style={{color: "red"}}>{emailError}</div>}
           <input onChange={e => emailHandler(e)} onBlur={e => blurHandler(e)} value={email} type="email"
-                 className="name" name="email"
+                 className="name register-input" name="email"
                  placeholder="Enter your email..."/>
 
           {(passwordDirty && passwordError) && <div className="alert" style={{color: "red"}}>{passwordError}</div>}
           <input onChange={e => passwordHandler(e)} onBlur={e => blurHandler(e)} value={password} type="password"
-                 className="name" name="password"
+                 className="name register-input" name="password"
                  placeholder="Enter your password..."/>
 
-          <button className="registration-btn btn" disabled={!formValid} type="submit">Confirm</button>
-          <button className="registration-back-btn btn"><Link className="back-btn" to="/login">Back</Link></button>
+          <button className="btn btn-primary mt-3 register-btns" disabled={!formValid} type="submit">Confirm</button>
+          <button className="btn btn-secondary mt-2  register-btns"><Link to="/login">Back</Link></button>
         </form>
       </div>
     </div>
