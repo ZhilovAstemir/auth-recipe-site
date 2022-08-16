@@ -1,8 +1,7 @@
-import {Routes, Route, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import React from 'react';
 import "../styles/main.css"
 import "../styles/LoginPage.css"
-import Registration from "./Registration";
 
 
 const LoginPage = () => {
@@ -13,7 +12,7 @@ const LoginPage = () => {
           <div>
             <h1>Login Page</h1>
             <div>
-              <input type="text" placeholder="user name" className="name"/>
+              <input type="text" placeholder="user email" className="name"/>
             </div>
             <div className="second-input">
               <input type="password" placeholder="user password" className="name"/>

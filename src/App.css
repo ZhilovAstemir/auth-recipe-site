@@ -4,6 +4,17 @@
   margin: 0;
 }
 
+h1 {
+  text-align: center;
+}
+
+.recipes {
+  padding: 10px;
+  min-height: calc(100vh - 100px);
+  width: 50%;
+  margin: 0 auto;
+}
+
 .app-div {
   padding: 25px;
   height: 15%;
