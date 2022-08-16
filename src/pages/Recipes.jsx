@@ -1,9 +1,18 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import CreatRecipe from "../modals/CreatRecipe";
+import Recipe from "./Recipe";
 
 const Recipes = () => {
   const [modal, setModal] = useState(false);
   const [recipeList, setRecipeList] = useState([]);
+
+  useEffect(() => {
+    let arr = localStorage.getItem("recipesList");
+    if (arr) {
+      let obj = JSON.parse(arr);
+      setRecipeList(obj);
+    }
+  }, [])
 
   const toggle = () => {
     setModal(!modal);
@@ -12,8 +21,9 @@ const Recipes = () => {
   const saveRecipe = (recipeObj) => {
     let tempList = recipeList;
     tempList.push(recipeObj);
-    setRecipeList(tempList);
+    localStorage.setItem("recipesList", JSON.stringify(tempList));
     setModal(false);
+    setRecipeList(tempList);
   }
 
   return (
@@ -23,7 +33,7 @@ const Recipes = () => {
         <button className="btn btn-primary mt-2" onClick={() => setModal(true)}>Create Recipe</button>
       </div>
       <div className="recipe-container">
-        {recipeList.map((obj) => <li>{obj.Name}</li>)}
+        {recipeList.map((obj, index) => <Recipe recipeObj={obj} index={index}/>)}
       </div>
       <CreatRecipe toggle={toggle} modal={modal} save={saveRecipe}/>
     </>
