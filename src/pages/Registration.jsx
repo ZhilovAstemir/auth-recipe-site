@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import "../styles/main.css";
 import '../styles/Registration.css';
 import {Link} from "react-router-dom";
+import {users} from "../shared/projectData";
 
 
 const Registration = () => {
@@ -19,6 +20,14 @@ const Registration = () => {
   const [passwordError, setPasswordError] = useState("This field can't be empty");
   const [emailError, setEmailError] = useState("This field can't be empty");
   const [formValid, setFormValid] = useState(false);
+
+  useEffect(() => {
+    if (firstNameError || lastNameError || emailError || passwordError) {
+      setFormValid(false);
+    } else {
+      setFormValid(true);
+    }
+  }, [firstNameError, lastNameError, emailError, passwordError]);
 
   const firstNameHandler = (event) => {
     setFirstName(event.target.value);
@@ -74,13 +83,14 @@ const Registration = () => {
     }
   }
 
-  useEffect(() => {
-    if (firstNameError || lastNameError || emailError || passwordError) {
-      setFormValid(false);
-    } else {
-      setFormValid(true);
-    }
-  }, [firstNameError, lastNameError, emailError, passwordError]);
+
+  const confirmData = (e) => {
+    e.preventDefault();
+    // localStorage.setItem("users", JSON.stringify(users));
+    users.push([firstName, lastName, email, password]);
+    console.log(users);
+  }
+
 
   return (
     <div className="register-form main">
@@ -88,26 +98,31 @@ const Registration = () => {
         <form className="register-form">
           <h1 className="register-h1">Registration</h1>
           {(firstNameDirty && firstNameError) && <div className="alert" style={{color: "red"}}>{firstNameError}</div>}
-          <input onChange={e => firstNameHandler(e)} onBlur={e => blurHandler(e)} value={firstName} type="text"
+          <input onChange={e => firstNameHandler(e)} onBlur={e => blurHandler(e)} id="nameInput" value={firstName}
+                 type="text"
                  className="name register-input" name="firstName"
                  placeholder="Enter your first name..."/>
 
           {(lastNameDirty && lastNameError) && <div className="alert" style={{color: "red"}}>{lastNameError}</div>}
-          <input onChange={e => lastNameHandler(e)} onBlur={e => blurHandler(e)} value={lastName} type="text"
+          <input onChange={e => lastNameHandler(e)} onBlur={e => blurHandler(e)} id="lastNameInput" value={lastName}
+                 type="text"
                  className="name register-input" name="lastName"
                  placeholder="Enter your last name..."/>
 
           {(emailDirty && emailError) && <div className="alert" style={{color: "red"}}>{emailError}</div>}
-          <input onChange={e => emailHandler(e)} onBlur={e => blurHandler(e)} value={email} type="email"
+          <input onChange={e => emailHandler(e)} onBlur={e => blurHandler(e)} id="emailInput" value={email} type="email"
                  className="name register-input" name="email"
                  placeholder="Enter your email..."/>
 
           {(passwordDirty && passwordError) && <div className="alert" style={{color: "red"}}>{passwordError}</div>}
-          <input onChange={e => passwordHandler(e)} onBlur={e => blurHandler(e)} value={password} type="password"
+          <input onChange={e => passwordHandler(e)} onBlur={e => blurHandler(e)} id="passwordInput" value={password}
+                 type="password"
                  className="name register-input" name="password"
                  placeholder="Enter your password..."/>
 
-          <button className="btn btn-primary mt-3 register-btns" disabled={!formValid} type="submit">Confirm</button>
+          <button className="btn btn-primary mt-3 register-btns" onClick={confirmData} disabled={!formValid}
+                  type="submit">Confirm
+          </button>
           <button className="btn btn-secondary mt-2  register-btns"><Link to="/login">Back</Link></button>
         </form>
       </div>

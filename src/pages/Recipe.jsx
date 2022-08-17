@@ -53,7 +53,7 @@ const Recipe = ({recipeObj, index, deleteRecipe, updateRecipeArray}) => {
         <p className="mt-2">{recipeObj.Description}</p>
 
         <div style={{"position": "absolute", "right": "20px", "bottom": "20px"}}>
-          <i className="far fa-edit mr-4" style={{"color": colors[index % 5].primaryColor, "cursor": "pointer"}}
+          <i className="far fa-edit mr-4" style={{"color": colors[index % 5].primaryColor, "cursor": "pointer", "margin": "10px"}}
              onClick={() => {
                setModal(true)
              }}>

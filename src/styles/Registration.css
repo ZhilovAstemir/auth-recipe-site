@@ -29,11 +29,7 @@
   border-radius: 10px;
   height: 40px;
   border: 1px solid teal;
-}
-
-.register-input::placeholder {
-  padding-left: 15px;
-  margin-left: 15px;
+  text-indent: 20px;
 }
 
 .register-input:hover {

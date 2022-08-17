@@ -24,8 +24,8 @@
 }
 
 .recipes-wrapper {
-  width: 270px;
-  height: 200px;
+  width: 350px;
+  height: 350px;
   box-shadow: 0 3px 50px #A5A5A5;
   display: flex;
   flex-direction: column;
@@ -82,6 +82,10 @@ span {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+p {
+  overflow-wrap: break-word;
 }
 
 
