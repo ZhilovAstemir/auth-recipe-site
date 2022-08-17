@@ -51,8 +51,14 @@ const Recipes = () => {
         <button className="btn btn-primary mt-2" onClick={() => setModal(true)}>Create Recipe</button>
       </div>
       <div className="recipe-container">
-        {recipeList.map((obj, index) => <Recipe recipeObj={obj} index={index} deleteRecipe={deleteRecipe}
-                                                updateRecipeArray={updateRecipeArray}/>)}
+        {recipeList.map((obj, index) => (
+          <Recipe
+            key={obj.Description}
+            recipeObj={obj}
+            index={index}
+            deleteRecipe={deleteRecipe}
+            updateRecipeArray={updateRecipeArray}/>
+        ))}
       </div>
       <CreatRecipe toggle={toggle} modal={modal} save={saveRecipe}/>
     </>
