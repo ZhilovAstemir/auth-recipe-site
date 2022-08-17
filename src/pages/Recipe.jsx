@@ -43,12 +43,14 @@ const Recipe = ({recipeObj, index, deleteRecipe, updateRecipeArray}) => {
 
   return (
     <div className="recipes-wrapper mr-5">
-      <div className="recipe-top" style={{"background-color": colors[index % 5].primaryColor}}>
+      <div className="recipe-top" style={{
+        backgroundColor: colors[index % 5].primaryColor
+      }}>
       </div>
       <div className="recipes-holder">
         <span className="recipe-header" style={{
-          "background-color": colors[index % 5].primaryColor,
-          "border-radius": "10px"
+          backgroundColor: colors[index % 5].primaryColor,
+          borderRadius: "10px"
         }}>{recipeObj.Name}</span>
         <p className="mt-2">{recipeObj.Description}</p>
 

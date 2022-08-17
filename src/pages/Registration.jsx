@@ -1,12 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import "../styles/main.css";
 import '../styles/Registration.css';
-import {Link} from "react-router-dom";
-import {users} from "../shared/projectData";
+import {Link, useNavigate} from "react-router-dom";
 
 
 const Registration = () => {
-
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
@@ -21,6 +19,8 @@ const Registration = () => {
   const [emailError, setEmailError] = useState("This field can't be empty");
   const [formValid, setFormValid] = useState(false);
   const [isRegistered, setIsRegistered] = useState("You have not registered yet.")
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (firstNameError || lastNameError || emailError || passwordError) {
@@ -81,6 +81,8 @@ const Registration = () => {
       case "password":
         setPasswordDirty(true);
         break;
+      default: 
+        break;
     }
   }
 
@@ -92,11 +94,12 @@ const Registration = () => {
   }
   const confirmData = (e) => {
     e.preventDefault();
-    localStorage.setItem("users", JSON.stringify(users));
+    const users = JSON.parse(localStorage.getItem('users')) || [];
     users.push([firstName, lastName, email, password]);
+    localStorage.setItem("users", JSON.stringify(users));
     setIsRegistered("You have registered.");
     setUpToNothing();
-    console.log(users);
+    navigate("/login", { replace: true });
   }
 
   return (
