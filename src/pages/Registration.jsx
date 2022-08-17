@@ -20,6 +20,7 @@ const Registration = () => {
   const [passwordError, setPasswordError] = useState("This field can't be empty");
   const [emailError, setEmailError] = useState("This field can't be empty");
   const [formValid, setFormValid] = useState(false);
+  const [isRegistered, setIsRegistered] = useState("You have not registered yet.")
 
   useEffect(() => {
     if (firstNameError || lastNameError || emailError || passwordError) {
@@ -83,14 +84,20 @@ const Registration = () => {
     }
   }
 
-
+  const setUpToNothing = () => {
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPassword("");
+  }
   const confirmData = (e) => {
     e.preventDefault();
-    // localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("users", JSON.stringify(users));
     users.push([firstName, lastName, email, password]);
+    setIsRegistered("You have registered.");
+    setUpToNothing();
     console.log(users);
   }
-
 
   return (
     <div className="register-form main">
@@ -124,6 +131,7 @@ const Registration = () => {
                   type="submit">Confirm
           </button>
           <button className="btn btn-secondary mt-2  register-btns"><Link to="/login">Back</Link></button>
+          <p className="register-text">{isRegistered}</p>
         </form>
       </div>
     </div>

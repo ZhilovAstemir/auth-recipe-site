@@ -9,6 +9,7 @@ const LoginPage = () => {
 
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState("You are not logged in.");
 
   const emailHandler = (e) => {
     setUserEmail(e.target.value);
@@ -21,9 +22,13 @@ const LoginPage = () => {
   const login = (e) => {
     e.preventDefault();
     let userDate = [userEmail, userPassword];
-    console.log(userDate);
-
-    console.log(users.some(el => el === userEmail[0]));
+    let checkUsers = users.map((el) => el.filter((el, ind) => ind === 2 || ind === 3));
+    let loggedIn = checkUsers.some((el, ind) => el[ind] === userDate[ind]);
+    if (loggedIn) {
+      setIsLoggedIn("You logged in.");
+    } else {
+      setIsLoggedIn("Invalid data, try again.");
+    }
   }
 
   return (
@@ -46,6 +51,7 @@ const LoginPage = () => {
             <p className="link">
               or<Link to="/signin" className="login-link"> Sign up</Link>
             </p>
+            <p className="login-text">{isLoggedIn}</p>
           </div>
         </div>
       </div>

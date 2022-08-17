@@ -41,3 +41,9 @@
   display: block;
   margin: 0 auto;
 }
+
+.register-text {
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 25px;
+}
