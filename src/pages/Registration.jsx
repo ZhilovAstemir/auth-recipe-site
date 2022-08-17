@@ -95,7 +95,7 @@ const Registration = () => {
   const confirmData = (e) => {
     e.preventDefault();
     const users = JSON.parse(localStorage.getItem('users')) || [];
-    users.push([firstName, lastName, email, password]);
+    users.push({firstName, lastName, email, password});
     localStorage.setItem("users", JSON.stringify(users));
     setIsRegistered("You have registered.");
     setUpToNothing();

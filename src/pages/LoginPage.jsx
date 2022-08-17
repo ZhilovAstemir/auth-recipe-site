@@ -1,9 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import React, {useState} from 'react';
 import "../styles/main.css"
 import "../styles/LoginPage.css"
 
-const LoginPage = ({ changeState }) => {
+const LoginPage = ({changeState}) => {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState("You are not logged in.");
@@ -21,12 +21,12 @@ const LoginPage = ({ changeState }) => {
   const login = (e) => {
     e.preventDefault();
     const users = JSON.parse(localStorage.getItem('users'));
-    const logginedUser = users.find((user) => user[2] === userEmail && user[3] === userPassword);
+    const logginedUser = users.some(user => user.email === userEmail && user.password === userPassword);
     if (logginedUser) {
       setIsLoggedIn("You logged in.");
       localStorage.setItem('user', JSON.stringify(logginedUser));
       changeState((prev) => !prev);
-      navigate("/recipes", { replace: true });
+      navigate("/recipes", {replace: true});
     } else {
       setIsLoggedIn("Invalid data, try again.");
     }

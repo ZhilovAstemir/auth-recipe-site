@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import EditRecipe from "../modals/EditRecipe";
+import {users} from "../shared/projectData";
 
 
 const Recipe = ({recipeObj, index, deleteRecipe, updateRecipeArray}) => {
@@ -55,6 +56,7 @@ const Recipe = ({recipeObj, index, deleteRecipe, updateRecipeArray}) => {
         <p className="mt-2">{recipeObj.Description}</p>
 
         <div style={{"position": "absolute", "right": "20px", "bottom": "20px"}}>
+          <p className="user-email">{users.email}</p>
           <i className="far fa-edit mr-4" style={{"color": colors[index % 5].primaryColor, "cursor": "pointer", "margin": "10px"}}
              onClick={() => {
                setModal(true)
