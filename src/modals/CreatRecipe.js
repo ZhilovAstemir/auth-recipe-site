@@ -1,11 +1,15 @@
 import React, {useState} from 'react';
-import {Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap';
 import "../modals/CreatRecipe.css";
 
 const CreatRecipe = ({modal, toggle, save}) => {
 
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
   const [recipeName, setRecipeName] = useState("");
   const [description, setDescription] = useState("");
+  const [currentEmail, setCurrentEmail] = useState(currentUser[0].userEmail);
+
 
   const handleChange = (e) => {
 
@@ -22,14 +26,21 @@ const CreatRecipe = ({modal, toggle, save}) => {
     let recipeObj = {};
     recipeObj["Name"] = recipeName;
     recipeObj["Description"] = description;
+    recipeObj["CurrentEmail"] = currentEmail;
     save(recipeObj);
   }
+
 
   return (
     <Modal isOpen={modal} toggle={toggle}>
       <ModalHeader toggle={toggle}>Create Recipe</ModalHeader>
       <ModalBody>
         <form>
+          <div className="form-group">
+            <label>User Email</label>
+            <input type="email" className="form-control" value={currentEmail}
+                   name="currentEmail"/>
+          </div>
           <div className="form-group">
             <label>Recipe Name</label>
             <input type="text" className="form-control" value={recipeName} onChange={handleChange}

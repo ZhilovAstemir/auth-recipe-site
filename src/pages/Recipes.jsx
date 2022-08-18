@@ -44,11 +44,15 @@ const Recipes = () => {
     }
   }, []);
 
+  const isLogged = localStorage.getItem("user");
+
   return (
     <>
       <div className="header text-center">
         <h3>Recipes List</h3>
-        <button className="btn btn-primary mt-2" onClick={() => setModal(true)}>Create Recipe</button>
+        {isLogged ? <button className="btn btn-primary mt-2" onClick={() => setModal(true)}>Create Recipe</button> :
+          <p>for editing please log in</p>}
+
       </div>
       <div className="recipe-container">
         {recipeList.map((obj, index) => (

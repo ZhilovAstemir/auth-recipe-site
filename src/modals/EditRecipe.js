@@ -5,11 +5,16 @@ import "../modals/CreatRecipe.css";
 
 const EditRecipe = ({modal, toggle, updateRecipe, recipeObj}) => {
 
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
   const [recipeName, setRecipeName] = useState("");
   const [description, setDescription] = useState("");
+  const [currentEmail, setCurrentEmail] = useState(currentUser[0].userEmail);
+
+  console.log(currentEmail)
 
   const handleChange = (e) => {
-
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const {name, value} = e.target;
 
     if (name === "recipeName") {
@@ -22,21 +27,33 @@ const EditRecipe = ({modal, toggle, updateRecipe, recipeObj}) => {
   useEffect(() => {
     setRecipeName(recipeObj.Name);
     setDescription(recipeObj.Description);
+    setCurrentEmail(recipeObj.CurrentEmail);
   }, []);
 
   const handleUpdate = (e) => {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const currentEmail = currentUser.userEmail;
     e.preventDefault();
     let tempObj = {}
     tempObj["Name"] = recipeName;
     tempObj["Description"] = description;
+    recipeObj["CurrentEmail"] = currentEmail;
+
     updateRecipe(tempObj);
   }
+
+  console.log(currentEmail);
 
   return (
     <Modal isOpen={modal} toggle={toggle}>
       <ModalHeader toggle={toggle}>Update Recipe</ModalHeader>
       <ModalBody>
         <form>
+          <div className="form-group">
+            <label>User Email</label>
+            <input type="email" className="form-control" value={currentEmail}
+                   name="currentEmail"/>
+          </div>
           <div className="form-group">
             <label>Recipe Name</label>
             <input type="text" className="form-control" value={recipeName} onChange={handleChange}

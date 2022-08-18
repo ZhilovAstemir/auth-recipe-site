@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import EditRecipe from "../modals/EditRecipe";
-import {users} from "../shared/projectData";
 
 
 const Recipe = ({recipeObj, index, deleteRecipe, updateRecipeArray}) => {
@@ -42,6 +41,8 @@ const Recipe = ({recipeObj, index, deleteRecipe, updateRecipeArray}) => {
     deleteRecipe(index);
   }
 
+  const user = localStorage.getItem("user");
+
   return (
     <div className="recipes-wrapper mr-5">
       <div className="recipe-top" style={{
@@ -52,12 +53,15 @@ const Recipe = ({recipeObj, index, deleteRecipe, updateRecipeArray}) => {
         <span className="recipe-header" style={{
           backgroundColor: colors[index % 5].primaryColor,
           borderRadius: "10px"
+        }}>{recipeObj.CurrentEmail}</span>
+        <span className="recipe-header" style={{
+          backgroundColor: colors[index % 5].primaryColor,
+          borderRadius: "10px"
         }}>{recipeObj.Name}</span>
         <p className="mt-2">{recipeObj.Description}</p>
-
-        <div style={{"position": "absolute", "right": "20px", "bottom": "20px"}}>
-          <p className="user-email">{users.email}</p>
-          <i className="far fa-edit mr-4" style={{"color": colors[index % 5].primaryColor, "cursor": "pointer", "margin": "10px"}}
+        {user ? <div style={{"position": "absolute", "right": "20px", "bottom": "20px"}}>
+          <i className="far fa-edit mr-4"
+             style={{"color": colors[index % 5].primaryColor, "cursor": "pointer", "margin": "10px"}}
              onClick={() => {
                setModal(true)
              }}>
@@ -65,7 +69,7 @@ const Recipe = ({recipeObj, index, deleteRecipe, updateRecipeArray}) => {
           <i className="fas fa-trash-alt ml-3" style={{"color": colors[index % 5].primaryColor, "cursor": "pointer"}}
              onClick={handleDelete}>
           </i>
-        </div>
+        </div> : <p></p>}
       </div>
       <EditRecipe modal={modal} toggle={toggle} updateRecipe={updateRecipe} recipeObj={recipeObj}/>
     </div>

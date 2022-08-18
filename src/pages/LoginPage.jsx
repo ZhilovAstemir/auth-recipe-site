@@ -23,8 +23,10 @@ const LoginPage = ({changeState}) => {
     const users = JSON.parse(localStorage.getItem('users'));
     const logginedUser = users.some(user => user.email === userEmail && user.password === userPassword);
     if (logginedUser) {
+      const currentUser = [{userEmail, userPassword}];
       setIsLoggedIn("You logged in.");
       localStorage.setItem('user', JSON.stringify(logginedUser));
+      localStorage.setItem('currentUser', JSON.stringify(currentUser));
       changeState((prev) => !prev);
       navigate("/recipes", {replace: true});
     } else {

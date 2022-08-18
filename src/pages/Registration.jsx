@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import "../styles/main.css";
 import '../styles/Registration.css';
 import {Link, useNavigate} from "react-router-dom";
+import {emailsData} from "../shared/projectData";
 
 
 const Registration = () => {
@@ -81,7 +82,7 @@ const Registration = () => {
       case "password":
         setPasswordDirty(true);
         break;
-      default: 
+      default:
         break;
     }
   }
@@ -92,14 +93,22 @@ const Registration = () => {
     setEmail("");
     setPassword("");
   }
+
   const confirmData = (e) => {
     e.preventDefault();
     const users = JSON.parse(localStorage.getItem('users')) || [];
-    users.push({firstName, lastName, email, password});
-    localStorage.setItem("users", JSON.stringify(users));
-    setIsRegistered("You have registered.");
-    setUpToNothing();
-    navigate("/login", { replace: true });
+    const emailsData = JSON.parse(localStorage.getItem('emailsData')) || [];
+    if (!emailsData.some(el => el === email)) {
+      users.push({firstName, lastName, email, password});
+      emailsData.push(email);
+      localStorage.setItem("users", JSON.stringify(users));
+      localStorage.setItem("emailsData", JSON.stringify(emailsData));
+      setIsRegistered("You have registered.");
+      setUpToNothing();
+      navigate("/login", {replace: true});
+    } else {
+      setIsRegistered("This email is already used.");
+    }
   }
 
   return (
